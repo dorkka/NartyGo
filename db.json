@@ -1,0 +1,23 @@
+{
+    "resorts":[
+        {"id": 1, "name": "Czantoria", "city": "Ustroń", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "blue"}
+        ]},
+        {"id": 2, "name": "Palenica", "city": "Ustroń", "piste":[
+            {"id":1, "number": 1, "name": "Mała Palenica"},
+            {"id":2, "number": 2, "name": "Duża Palenica"}
+        ]},
+        {"id": 3, "name": "Poniwiec", "city": "Ustroń", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 4, "name": "Cieńków", "city": "Wisła", "piste":[
+            {"id":1, "number": 1, "name": ""},
+            {"id":2, "number": 2, "name": ""},
+            {"id":3, "number": 3, "name": ""},
+            {"id":4, "number": 4, "name": ""},
+            {"id":5, "number": 5, "name": ""}
+        ]}
+    ]
+}
