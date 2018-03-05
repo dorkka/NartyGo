@@ -1,41 +1,48 @@
 import React, { Component } from 'react';
-import '../styles/bootstrap.min.css'
 
 class TopLayout extends Component {
-    render(){
-        return(
-            <div>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    
-                    <div class="collapse navbar-collapse" id="navbarColor02">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        </ul>
-                    </div>
-                    </nav>
-                    <div class="jumbotron">
-                        <h1 class="display-4">Witamy w serwisie NartyGO</h1>
-                        <p class="lead">NartyGo to najnepszy serwis narciarski z najaktualniejszymi informacjami o ośrodkach narciarskich i warunkach na trasach!</p>
-                        <hr class="my-4"/>
-                        <p>Wyszukaj ośrodek najlepszy dla CIEBIE</p>
-                        <p class="lead">
-                        <input type = 'text' placeholder = 'nazwa ośrodka'/>
-                        <input type = 'text' placeholder = 'miasto'/>
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Szukaj</a>
-                        </p>
-                    </div>     
-                </div>
+  render(){
+    return(
+      <div>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+              
+            <div className="collapse navbar-collapse" id="navbarColor02">
+              <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Features</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Pricing</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">About</a>
+              </li>
+              </ul>
+            </div>
+            </nav>
+            <div className="jumbotron">
+              <h1 className="display-4">Witamy w serwisie NartyGo</h1>
+              <p className="lead">NartyGo to najnepszy serwis narciarski z najaktualniejszymi informacjami o ośrodkach narciarskich i warunkach na trasach!</p>
+            </div>
+            <div className="row">
+              <div className="col-md-3">
+                <p>Temperatura: </p>
+                <p>Zachmurzenie: </p>
+              </div> 
+              <div className="col-md-2">
+                <p>Sprawdź aktualną pogodę </p>
+                <p><button type="button" className="btn btn-warning">Sprawdź</button></p>
+              </div>
+              <div className="col-md-7">
+                <p>Wyszukaj ośrodek</p>
+                <input type = "text"/>
+                <p><button type="button" className="btn btn-warning">Szukaj</button></p>
+              </div> 
+            </div>        
+          </div>
         )
     }
 }
