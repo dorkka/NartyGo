@@ -12,7 +12,7 @@ class TopLayout extends Component {
                 <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
               </li>
               </ul>
-              <ul class="nav navbar-nav navbar-right">
+              <ul className="nav navbar-nav navbar-right">
                 <li><a className="nav-link" href="#">Logowanie</a></li>
               </ul>
             </div>

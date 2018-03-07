@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FooterLayout(props){
+export default function FooterLayout(props){
     const style = {
         fontSize: 'large',
         color: 'blue'
@@ -12,8 +12,5 @@ function FooterLayout(props){
                 <p>&copy; D-Softkol 2018 </p>
             </footer>
         </div>
-            
     )
 }
-
-export default FooterLayout;
