@@ -46,15 +46,15 @@ class ResortsData extends Component{
     return(
       <div>
         <h3>Lista Ośrodków narciarskich</h3>
-        <ResortsListHead />
-        {this.state.data.map((resort) => <ResortsList resort = {resort}/>)}
-        
-        <Pagination handleClick = {this.handleClick.bind(this)}/>
+        <table className="table table-striped"> 
+          <ResortsListHead/>
+          <tbody>
+            {this.state.data.map((resort)=><ResortsList resort={resort}/>)}
+          </tbody> 
+        </table>
+        <Pagination handleClick={this.handleClick.bind(this)}/>
       </div>
     )
   }
- 
-        
 }
-
 export default ResortsData;
