@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Pagination extends Component{
-  
   render(){
     return(
       <div>
         <ul className="pagination">
           <li className="page-item disabled">
-            <a className="page-link" href="#" >&laquo;</a>
+            <button className="page-link" >&laquo;</button>
           </li>
           <li className="page-item active">
-            <a className="page-link" href="#" onClick = {this.props.handleClick}>1</a>
+            <button className="page-link" onClick = {() => this.props.handleClick(1)}>1</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#" id='2' onClick = {this.props.handleClick}>2</a>
+            <button className="page-link" onClick = {() => this.props.handleClick(2)}>2</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#"  id='3' onClick = {this.props.handleClick}>3</a>
+            <button className="page-link"  onClick = {() => this.props.handleClick(3)}>3</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#" id='4' onClick = {this.props.handleClick}>4</a>
+            <button className="page-link" onClick = {() => this.props.handleClick(4)}>4</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#" id='5' onClick = {this.props.handleClick}>5</a>
+            <button className="page-link" onClick = {() => this.props.handleClick(5)}>5</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">&raquo;</a>
+            <button className="page-link" >&raquo;</button>
           </li>
         </ul>
       </div>
     )
   }
+}
 
+Pagination.PropTypes={
+  handleClick: PropTypes.func.isRequired
 }
 export default Pagination;

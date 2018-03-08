@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ResortsList extends Component{
   render(){
@@ -11,4 +12,12 @@ class ResortsList extends Component{
     )
   }
 }
+
+ResortsList.PropTypes={
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired
+}
 export default ResortsList;
+
+

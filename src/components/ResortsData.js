@@ -4,19 +4,19 @@ import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 
 class ResortsData extends Component{
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = {
       data: [],
-      page: 1,
+      page: 3,
       isLoading: false,
       error: null
     }
   }
-
-  componentDidMount(){
+  
+  fetchResorts(){
     this.setState({isLoading: true})
-    fetch(`http://localhost:3000/resorts?_page=${this.state.page}`)
+    fetch(`http://localhost:3000/resorts?_page=${this.state.page}&_limit=1`)
         .then(response => {
           if (response.ok) {
             return response.json();
@@ -28,18 +28,20 @@ class ResortsData extends Component{
         .catch(error => this.setState({ error, isLoading: false}))
   }
 
-  handleClick(e) {
-    this.setState({page: (Number(e.target.id))});
+  componentDidMount(){
+    this.fetchResorts();
   }
+
+  handleClick(page) {
+    this.setState({page: page},() => this.fetchResorts() );
+  }
+
   render(){
     const {isLoading, data, error} = this.state;
-
     if(error)
       return(error.message)
-    
     if(isLoading)
       return <div>Loading in progress</div>
-
     if(!data.length)
       return <div>There is no data</div>
           
