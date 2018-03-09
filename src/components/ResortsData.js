@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ResortsList from './ResortsList';
+import ResortBasicInfo from './ResortBasicInfo';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 
@@ -8,12 +8,16 @@ class ResortsData extends Component{
     super();
     this.state = {
       data: [],
-      page: 3,
+      page: 1,
       isLoading: false,
       error: null
     }
   }
   
+  componentDidMount(){
+    this.fetchResorts();
+  }
+
   fetchResorts(){
     this.setState({isLoading: true})
     fetch(`http://localhost:3000/resorts?_page=${this.state.page}&_limit=1`)
@@ -28,13 +32,7 @@ class ResortsData extends Component{
         .catch(error => this.setState({ error, isLoading: false}))
   }
 
-  componentDidMount(){
-    this.fetchResorts();
-  }
-
-  handleClick(page) {
-    this.setState({page: page},() => this.fetchResorts() );
-  }
+  handleClick = (page) => {this.setState({page},() => this.fetchResorts());}
 
   render(){
     const {isLoading, data, error} = this.state;
@@ -51,10 +49,10 @@ class ResortsData extends Component{
         <table className="table table-striped"> 
           <ResortsListHead/>
           <tbody>
-            {this.state.data.map((resort)=><ResortsList resort={resort}/>)}
+            {this.state.data.map((resort)=><ResortBasicInfo resort={resort}/>)}
           </tbody> 
         </table>
-        <Pagination handleClick={this.handleClick.bind(this)}/>
+        <Pagination handleClick={this.handleClick}/>
       </div>
     )
   }
