@@ -33,7 +33,7 @@ class Pagination extends Component{
   }
 }
 
-Pagination.PropTypes={
-  handleClick: PropTypes.func.isRequired
+Pagination.propTypes={
+  handleClick: PropTypes.func
 }
 export default Pagination;
