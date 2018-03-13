@@ -20,9 +20,10 @@ class ResortsData extends Component{
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.page !== this.state.page) {
-      this.fetchResorts();
+      this.fetchResorts();kjhS
     }
   }
+
 
   fetchResorts(){
     this.setState({isLoading: true})
