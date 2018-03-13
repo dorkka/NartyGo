@@ -18,9 +18,15 @@ class ResortsData extends Component{
     this.fetchResorts();
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.page !== this.state.page) {
+      this.fetchResorts();
+    }
+  }
+
   fetchResorts(){
     this.setState({isLoading: true})
-    fetch(`http://localhost:3000/resorts?_page=${this.state.page}&_limit=1`)
+    fetch(`http://localhost:3001/resorts?_page=${this.state.page}&_limit=1`)
         .then(response => {
           if (response.ok) {
             return response.json();
