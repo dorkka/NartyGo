@@ -9,8 +9,8 @@ class ResortsData extends Component{
     this.state = {
       data: [],
       page: 1,
-      pageCount: 5,
-      perPage: 2,
+      pageCount: 1,
+      perPage: 3,
       isLoading: false,
       error: null
     }
@@ -38,19 +38,16 @@ class ResortsData extends Component{
         })
         .then(({data, headers}) => {
           this.setState({ data: data,  pageCount: Math.ceil(headers.get('x-total-count')/ this.state.perPage), isLoading: false })
-          console.log(`page: ${this.state.page}`)
         })
         .catch(error => this.setState({ error, isLoading: false}))
   }
 
   handlePageClick = (data) => {
-    console.log(`selected : ${data.selected}`)
-    //there is +1, because 'react-paginate' has 0 as start page number,
     this.setState({page: data.selected +1})
   };
 
   render(){
-    const {data, pageCount, isLoading, error} = this.state;
+    const {data, pageCount, page, isLoading, error} = this.state;
     if(error)
       return(error.message)
     if(isLoading)
@@ -67,7 +64,7 @@ class ResortsData extends Component{
             {this.state.data.map((resort)=><ResortBasicInfo resort={resort}/>)}
           </tbody> 
         </table>
-        <Pagination pageCount={pageCount} handlePageClick={this.handlePageClick}/>
+        <Pagination pageCount={pageCount} handlePageClick={this.handlePageClick} initialPage={page - 1}/>
       </div>
     )
   }

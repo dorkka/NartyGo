@@ -20,13 +20,15 @@ class Pagination extends Component{
                      nextClassName="page-item"
                      pageLinkClassName="page-link"
                      previousLinkClassName="page-link"
-                     nextLinkClassName="page-link"/>
+                     nextLinkClassName="page-link"
+                     initialPage={this.props.initialPage}/>
     )
   }
 }
 
 Pagination.propTypes={
   handlePageClick: PropTypes.func,
-  pageCount: PropTypes.number
+  pageCount: PropTypes.number,
+  initialPage: PropTypes.number
 }
 export default Pagination;
