@@ -5,36 +5,28 @@ import ReactPaginate from 'react-paginate';
 class Pagination extends Component{
   render(){
     return(
-      <div>
-        <ul className="pagination">
-          <li className="page-item disabled">
-            <button className="page-link" >&laquo;</button>
-          </li>
-          <li className="page-item active">
-            <button className="page-link" onClick = {() => this.props.handleClick(1)}>1</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" onClick = {() => this.props.handleClick(2)}>2</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link"  onClick = {() => this.props.handleClick(3)}>3</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" onClick = {() => this.props.handleClick(4)}>4</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" onClick = {() => this.props.handleClick(5)}>5</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" >&raquo;</button>
-          </li>
-        </ul>
-      </div>
+      <ReactPaginate previousLabel={"previous"}
+                     nextLabel={"next"}
+                     breakClassName="page-item"
+                     pageCount={this.props.pageCount}
+                     marginPagesDisplayed={2}
+                     pageRangeDisplayed={5}
+                     onPageChange={this.props.handlePageClick}
+                     containerClassName={"pagination"}
+                     subContainerClassName={"pages pagination"}
+                     activeClassName={"active"}
+                     pageClassName="page-item"
+                     previousClassName="page-item"
+                     nextClassName="page-item"
+                     pageLinkClassName="page-link"
+                     previousLinkClassName="page-link"
+                     nextLinkClassName="page-link"/>
     )
   }
 }
 
 Pagination.propTypes={
-  handleClick: PropTypes.func
+  handlePageClick: PropTypes.func,
+  pageCount: PropTypes.number
 }
 export default Pagination;

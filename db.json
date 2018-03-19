@@ -23,7 +23,47 @@
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 6, "name": "Ski-Dolina", "city": "Brenna", "piste":[
+        {"id": 6, "name": "Siglany", "city": "Wisła", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 7, "name": "Kotelnica Białczańska ", "city": "Białka Tatrzańska", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 8, "name": "Ski-Dolina", "city": "Brenna", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 9, "name": "Kasprowy Wierch", "city": "Zakopane", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 10, "name": "Nosal", "city": "Zakopane", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 11, "name": "BIAŁY JAR WINTERPOL", "city": "Karpacz", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 12, "name": "Kompleks narciarski Śnieżka", "city": "Karpacz", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 13, "name": "STACJA NARCIARSKA POD WANGIEM", "city": "Karpacz", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 14, "name": "Kolorowa", "city": "Karpacz", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 15, "name": "Karpatka", "city": "Karpacz", "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 16, "name": "Polana Szymoszkowa", "city": "Zakopane", "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]}
