@@ -37,8 +37,10 @@ class ResortsData extends Component{
           }
         })
         .then(({data, headers}) => {
-          this.setState(
-           {data, pageCount: Math.ceil(headers.get('x-total-count')/this.state.perPage), isLoading: false})
+          this.setState({
+            data,
+            pageCount: Math.ceil(headers.get('x-total-count')/this.state.perPage),
+            isLoading: false})
         })
         .catch(error => this.setState({ error, isLoading: false}))
   }
