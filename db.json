@@ -1,29 +1,101 @@
 {
     "resorts":[
-        {"id": 1, "name": "Czantoria", "city": "Ustroń", "piste":[
+        {"id": 1, "name": "Czantoria", "city": "Ustroń",
+          "coordinates": {"lat": 49.6833162, "lng": 18.8196089},
+          "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "blue"}
         ]},
-        {"id": 2, "name": "Palenica", "city": "Ustroń", "piste":[
+        {"id": 2, "name": "Palenica", "city": "Ustroń",
+          "coordinates": {"lat": 49.6955791, "lng": 18.837671},
+          "piste":[
             {"id":1, "number": 1, "name": "Mała Palenica"},
             {"id":2, "number": 2, "name": "Duża Palenica"}
         ]},
-        {"id": 3, "name": "Poniwiec", "city": "Ustroń", "piste":[
+        {"id": 3, "name": "Poniwiec", "city": "Ustroń",
+          "coordinates": {"lat": 49.6912167, "lng": 18.7876183},
+          "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 4, "name": "Cieńków", "city": "Wisła", "piste":[
+        {"id": 4, "name": "Cieńków", "city": "Wisła",
+          "coordinates": {"lat": 49.6225722, "lng": 18.9380942},
+          "piste":[
             {"id":1, "number": 1, "name": ""},
             {"id":2, "number": 2, "name": ""},
             {"id":3, "number": 3, "name": ""},
             {"id":4, "number": 4, "name": ""},
             {"id":5, "number": 5, "name": ""}
         ]},
-        {"id": 5, "name": "Biały Krzyż", "city": "Szczyrk", "piste":[
+        {"id": 5, "name": "Biały Krzyż", "city": "Szczyrk",
+          "coordinates": {"lat": 49.6685428, "lng": 18.9609749},
+          "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 6, "name": "Ski-Dolina", "city": "Brenna", "piste":[
+        {"id": 6, "name": "Siglany", "city": "Wisła",
+          "coordinates": {"lat": 49.6388231, "lng": 18.8656753},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 7, "name": "Kotelnica Białczańska ", "city": "Białka Tatrzańska",
+          "coordinates": {"lat": 49.390558, "lng": 20.097502},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 8, "name": "Ski-Dolina", "city": "Brenna",
+          "coordinates": {"lat": 49.6847231, "lng": 18.9110062},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 9, "name": "Kasprowy Wierch", "city": "Zakopane",
+          "coordinates": {"lat": 49.2328651, "lng": 19.9828005},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 10, "name": "Nosal", "city": "Zakopane",
+          "coordinates": {"lat": 49.2838091, "lng": 19.9859937},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 11, "name": "BIAŁY JAR WINTERPOL", "city": "Karpacz",
+          "coordinates": {"lat": 50.773145, "lng": 15.738565},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 12, "name": "Kompleks narciarski Śnieżka", "city": "Karpacz",
+          "coordinates": {"lat": 50.773145, "lng": 15.738565},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 13, "name": "STACJA NARCIARSKA POD WANGIEM", "city": "Karpacz",
+          "coordinates": {"lat": 50.7789982, "lng": 15.7305766},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 14, "name": "Kolorowa", "city": "Karpacz",
+          "coordinates": {"lat": 50.773837, "lng": 15.7552958},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 15, "name": "Karpatka", "city": "Karpacz",
+          "coordinates": {"lat": 50.781286, "lng": 15.7534916},
+          "piste":[
+            {"id":1, "number": 1, "name": "red"},
+            {"id":2, "number": 2, "name": "green"}
+        ]},
+        {"id": 16, "name": "Polana Szymoszkowa", "city": "Zakopane",
+          "coordinates": {"lat": 49.2933755, "lng": 19.9291295},
+          "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]}
