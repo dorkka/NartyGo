@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ResortBasicInfo from './ResortBasicInfo';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
+import SpecificResortPage from './resortPage/SpecificResortPage'
 
 class ResortsData extends Component{
   constructor(){
@@ -60,6 +61,7 @@ class ResortsData extends Component{
           
     return(
       <div>
+        <SpecificResortPage/>
         <h3>Lista Ośrodków narciarskich</h3>
         <table className="table table-striped"> 
           <ResortsListHead/>
