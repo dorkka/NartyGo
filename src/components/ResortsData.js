@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ResortBasicInfo from './ResortBasicInfo';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
+import resourceFetcher from '../services/resourceFetcher';
 
 class ResortsData extends Component{
   constructor(){
@@ -28,21 +29,15 @@ class ResortsData extends Component{
 
   fetchResorts(){
     this.setState({isLoading: true})
-    fetch(`http://localhost:3001/resorts?_page=${this.state.page}&_limit=${this.state.perPage}`)
-        .then(response => {
-          if (response.ok) {
-            return response.json().then((data) => ({data, headers: response.headers}))
-          } else {
-            throw new Error('Something went wrong ...');
-          }
-        })
-        .then(({data, headers}) => {
-          this.setState({
-            data,
-            pageCount: Math.ceil(headers.get('x-total-count')/this.state.perPage),
-            isLoading: false})
-        })
-        .catch(error => this.setState({ error, isLoading: false}))
+    const {page: _page, perPage: _limit} = this.state
+    resourceFetcher('resorts')({_page, _limit})
+      .then(({data, headers}) => {
+        this.setState({
+          data,
+          pageCount: Math.ceil(headers.get('x-total-count')/this.state.perPage),
+          isLoading: false})
+      })
+      .catch(error => this.setState({ error, isLoading: false}))
   }
 
   handlePageClick = (data) => {
