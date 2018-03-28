@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class TopLayout extends Component {
   render(){
@@ -8,7 +9,7 @@ class TopLayout extends Component {
           <div className="collapse navbar-collapse" id="navbarColor02">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
