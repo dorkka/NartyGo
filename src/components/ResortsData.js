@@ -3,6 +3,7 @@ import ResortBasicInfo from './ResortBasicInfo';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 import resourceFetcher from '../services/resourceFetcher';
+import SpecificResortPage from './resortPage/SpecificResortPage'
 
 class ResortsData extends Component{
   constructor(){

@@ -48,6 +48,7 @@ stat
 
     return (
       <div>
+        <hr/>
         <h4>Ośrodek narciarski: {resort.name}</h4>
         <div className="row">
           <ResortDetails city={resort.city} piste={piste.length}/>
