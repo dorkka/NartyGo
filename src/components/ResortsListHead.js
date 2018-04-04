@@ -9,5 +9,5 @@ export default function ResortsListHead(props) {
         <th>Miasto</th>
       </tr>
     </thead>
-  )
+  );
 }

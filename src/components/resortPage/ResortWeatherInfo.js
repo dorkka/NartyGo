@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class ResortWeatherInfo extends Component {
   render() {
-    const {temperature, pressure, clouds} = this.props
+    const { temperature, pressure, clouds } = this.props;
     return (
       <div className="col-md-4">
         <h4>Pogoda</h4>
