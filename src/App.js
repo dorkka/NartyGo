@@ -13,7 +13,8 @@ class App extends Component {
         <div className="container-fluid App">
           <TopLayout />
           <Route exact path="/" component={ResortsData} />
-          <Route path="/resortPage/SpecificResortPage" component={SpecificResortPage} />
+          <Route exact path="/resorts" component={ResortsData} />
+          <Route path="/resorts/:id" component={SpecificResortPage} />
           <FooterLayout />
         </div>
       </Router>

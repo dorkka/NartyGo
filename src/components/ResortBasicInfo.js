@@ -7,7 +7,7 @@ class ResortBasicInfo extends Component {
     const { resort: { id, name, city } } = this.props;
     return (
       <tr>
-        <th scope="row"><Link to="resortPage/SpecificResortPage">{id}</Link></th>
+        <th scope="row"><Link to={`/resorts/${id}`}>{id}</Link></th>
         <td>{name}</td>
         <td>{city}</td>
       </tr>
