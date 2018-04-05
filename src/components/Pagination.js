@@ -29,8 +29,8 @@ class Pagination extends Component {
 }
 
 Pagination.propTypes = {
-  handlePageClick: PropTypes.func,
-  pageCount: PropTypes.number,
-  initialPage: PropTypes.number,
+  handlePageClick: PropTypes.func.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  initialPage: PropTypes.number.isRequired,
 };
 export default Pagination;

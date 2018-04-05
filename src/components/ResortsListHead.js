@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ResortsListHead(props) {
+export default function ResortsListHead() {
   return (
     <thead>
       <tr>

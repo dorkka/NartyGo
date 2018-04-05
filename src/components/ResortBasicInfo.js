@@ -16,12 +16,11 @@ class ResortBasicInfo extends Component {
 }
 
 ResortBasicInfo.propTypes = {
-  resort: PropTypes.object,
   resort: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     city: PropTypes.string,
-  }),
+  }).isRequired,
 };
 export default ResortBasicInfo;
 

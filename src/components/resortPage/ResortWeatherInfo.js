@@ -16,9 +16,9 @@ class ResortWeatherInfo extends Component {
 }
 
 ResortWeatherInfo.propTypes = {
-  temperature: PropTypes.string,
-  pressure: PropTypes.string,
-  clouds: PropTypes.string,
+  temperature: PropTypes.string.isRequired,
+  pressure: PropTypes.string.isRequired,
+  clouds: PropTypes.string.isRequired,
 };
 
 export default ResortWeatherInfo;

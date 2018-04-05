@@ -14,8 +14,8 @@ class ResortDetails extends Component {
 }
 
 ResortDetails.propTypes = {
-  city: PropTypes.string,
-  piste: PropTypes.number,
+  city: PropTypes.string.isRequired,
+  piste: PropTypes.number.isRequired,
 };
 
 export default ResortDetails;
