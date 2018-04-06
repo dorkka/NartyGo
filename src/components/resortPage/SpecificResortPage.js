@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
+
 
 class SpecificResortPage extends Component {
   state = {
     resort: {},
-    resortId: 1,
     weather: {},
     piste: [],
     isLoading: false,
@@ -18,7 +19,7 @@ class SpecificResortPage extends Component {
 
   fetchResort() {
     this.setState({ isLoading: true });
-    fetch(`http://localhost:3001/resorts/${this.state.resortId}`)
+    fetch(`http://localhost:3001/resorts/${this.props.match.params.id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -59,5 +60,14 @@ class SpecificResortPage extends Component {
     );
   }
 }
+
+SpecificResortPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.number,
+    }),
+  }).isRequired,
+};
 
 export default SpecificResortPage;
