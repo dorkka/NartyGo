@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
-
+import FooterLayout from '../FooterLayout';
+import TopLayout from '../TopLayout';
 
 class SpecificResortPage extends Component {
   state = {
@@ -45,7 +46,8 @@ class SpecificResortPage extends Component {
     if (isLoading) { return <div>Loading in progress</div>; }
 
     return (
-      <div>
+      <div div className="container-fluid App">
+        <TopLayout />
         <hr />
         <h4>Ośrodek narciarski: {resort.name}</h4>
         <div className="row">
@@ -56,6 +58,7 @@ class SpecificResortPage extends Component {
             clouds={weather.clouds}
           />
         </div>
+        <FooterLayout />
       </div>
     );
   }
