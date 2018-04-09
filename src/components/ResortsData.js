@@ -3,9 +3,6 @@ import ResortBasicInfo from './ResortBasicInfo';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 import resourceFetcher from '../services/resourceFetcher';
-import FooterLayout from './FooterLayout';
-import TopLayout from './TopLayout';
-
 
 class ResortsData extends Component {
   constructor() {
@@ -57,9 +54,8 @@ class ResortsData extends Component {
     if (!data.length) { return <div>There is no data</div>; }
 
     return (
-      <div div className="container-fluid App">
-        <TopLayout />
-        <h3>Lista Ośrodków narciarskich</h3>
+      <div>
+        <h2>Lista Ośrodków narciarskich</h2>
         <table className="table table-striped">
           <ResortsListHead />
           <tbody>
@@ -71,7 +67,6 @@ class ResortsData extends Component {
           handlePageClick={this.handlePageClick}
           initialPage={page - 1}
         />
-        <FooterLayout />
       </div>
     );
   }
