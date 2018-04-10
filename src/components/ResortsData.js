@@ -5,50 +5,46 @@ import Pagination from './Pagination';
 import resourceFetcher from '../services/resourceFetcher';
 
 class ResortsData extends Component {
-  constructor() {
-    super();
-    this.state = {
+    state = {
       data: [],
-      page: 1,
       pageCount: 1,
       perPage: 3,
       isLoading: false,
       error: null,
     };
-  }
 
-  componentDidMount() {
-    this.fetchResorts();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.page !== this.state.page) {
+    componentDidMount() {
       this.fetchResorts();
     }
-  }
 
-  fetchResorts() {
-    this.setState({ isLoading: true });
-    const { page: _page, perPage: _limit } = this.state;
-    resourceFetcher('resorts')({ _page, _limit })
-      .then(({ data, headers }) => {
-        this.setState({
-          data,
-          pageCount: Math.ceil(headers.get('x-total-count') / this.state.perPage),
-          isLoading: false,
-        });
-      })
-      .catch(error => this.setState({ error, isLoading: false }));
-  }
+    fetchResorts() {
+      this.setState({ isLoading: true });
+      const { page = 1 } = this.props.match.params;
+      const { perPage: _limit } = this.state;
+      resourceFetcher('resorts')({ page, _limit })
+        .then(({ data, headers }) => {
+          this.setState({
+            data,
+            pageCount: Math.ceil(headers.get('x-total-count') / this.state.perPage),
+            isLoading: false,
+          });
+        })
+        .catch(error => this.setState({ error, isLoading: false }));
+    }
 
   handlePageClick = (data) => {
-    this.setState({ page: data.selected + 1 });
+
+    this.props.page = data.selected + 1;
+    const url = `${this.props.match.url}/page=${page}`;
+    this.fetchResorts();
   };
 
   render() {
     const {
-      data, pageCount, page, isLoading, error,
+      data, pageCount, isLoading, error,
     } = this.state;
+    const { page = 1 } = this.props.match.params;
+
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
     if (!data.length) { return <div>There is no data</div>; }
