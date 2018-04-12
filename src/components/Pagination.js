@@ -22,7 +22,7 @@ class Pagination extends Component {
         pageLinkClassName="page-link"
         previousLinkClassName="page-link"
         nextLinkClassName="page-link"
-        initialPage={this.props.initialPage}
+        forcePage={this.props.page}
       />
     );
   }
@@ -31,6 +31,6 @@ class Pagination extends Component {
 Pagination.propTypes = {
   handlePageClick: PropTypes.func.isRequired,
   pageCount: PropTypes.number.isRequired,
-  initialPage: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
 };
 export default Pagination;

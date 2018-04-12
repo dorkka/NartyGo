@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import ResortBasicInfo from './ResortBasicInfo';
+import qs from 'qs';
+import PropTypes from 'prop-types';
 import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 import resourceFetcher from '../services/resourceFetcher';
+import ResortBasicInfo from './ResortBasicInfo';
 
 class ResortsData extends Component {
     state = {
@@ -16,12 +18,17 @@ class ResortsData extends Component {
     componentDidMount() {
       this.fetchResorts();
     }
+    componentDidUpdate(prevProps) {
+      if (prevProps.location.search !== this.props.location.search) {
+        this.fetchResorts();
+      }
+    }
 
     fetchResorts() {
       this.setState({ isLoading: true });
-      const { page = 1 } = this.props.match.params;
+      const { page: _page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
       const { perPage: _limit } = this.state;
-      resourceFetcher('resorts')({ page, _limit })
+      resourceFetcher('resorts')({ _page, _limit })
         .then(({ data, headers }) => {
           this.setState({
             data,
@@ -33,17 +40,15 @@ class ResortsData extends Component {
     }
 
   handlePageClick = (data) => {
-
-    this.props.page = data.selected + 1;
-    const url = `${this.props.match.url}/page=${page}`;
-    this.fetchResorts();
+    const page = data.selected + 1;
+    this.props.history.push(`${this.props.match.url}?page=${page}`);
   };
 
   render() {
     const {
       data, pageCount, isLoading, error,
     } = this.state;
-    const { page = 1 } = this.props.match.params;
+    const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
 
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
@@ -61,10 +66,22 @@ class ResortsData extends Component {
         <Pagination
           pageCount={pageCount}
           handlePageClick={this.handlePageClick}
-          initialPage={page - 1}
+          page={page - 1}
         />
       </div>
     );
   }
 }
+
+ResortsData.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.number,
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+};
 export default ResortsData;
