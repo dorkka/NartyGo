@@ -23,7 +23,11 @@ class SpecificResortPage extends Component {
         if (response.ok) {
           return response.json();
         }
-        throw new Error('Something went wrong ...');
+        let message = 'Something went wrong ...';
+        if (response.status === 404) {
+          message = 'Page not found 404';
+        }
+        throw new Error(message);
       })
       .then((resort) => {
         this.setState({
@@ -44,7 +48,7 @@ class SpecificResortPage extends Component {
     if (isLoading) { return <div>Loading in progress</div>; }
 
     return (
-      <div div className="container-fluid App">
+      <div className="container-fluid App">
         <hr />
         <h4>Ośrodek narciarski: {resort.name}</h4>
         <div className="row">
@@ -63,8 +67,7 @@ class SpecificResortPage extends Component {
 SpecificResortPage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.number,
+      id: PropTypes.string,
     }),
   }).isRequired,
 };

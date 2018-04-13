@@ -7,6 +7,10 @@ export default url => (params) => {
       if (response.ok) {
         return response.json().then(data => ({ data, headers: response.headers }));
       }
-      throw new Error('Something went wrong ...');
+      let message = 'Something went wrong ...';
+      if (response.status === 404) {
+        message = 'Page not found 404';
+      }
+      throw new Error(message);
     });
 };
