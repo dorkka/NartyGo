@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
+import resourceFetcher from '../../services/resourceFetcher';
 
 class SpecificResortPage extends Component {
   state = {
-    resort: {},
-    weather: {},
-    piste: [],
+    resort: {
+      weather: {},
+      piste: [],
+    },
     isLoading: false,
     error: null,
   };
@@ -18,22 +20,11 @@ class SpecificResortPage extends Component {
 
   fetchResort() {
     this.setState({ isLoading: true });
-    fetch(`http://localhost:3001/resorts/${this.props.match.params.id}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        let message = 'Something went wrong ...';
-        if (response.status === 404) {
-          message = 'Page not found 404';
-        }
-        throw new Error(message);
-      })
-      .then((resort) => {
+
+    resourceFetcher(`resorts/${this.props.match.params.id}`)()
+      .then(({ data }) => {
         this.setState({
-          resort,
-          weather: resort.weather,
-          piste: resort.piste,
+          resort: data,
           isLoading: false,
         });
       })
@@ -42,21 +33,22 @@ class SpecificResortPage extends Component {
 
   render() {
     const {
-      resort, weather, piste, isLoading, error,
+      resort: {
+        name, piste, city, weather: { temperature, pressure, clouds },
+      }, error, isLoading,
     } = this.state;
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
-
     return (
       <div className="container-fluid App">
         <hr />
-        <h4>Ośrodek narciarski: {resort.name}</h4>
+        <h4>Ośrodek narciarski: {name}</h4>
         <div className="row">
-          <ResortDetails city={resort.city} piste={piste.length} />
+          <ResortDetails city={city} piste={piste.length} />
           <ResortWeatherInfo
-            temperature={weather.temperature}
-            pressure={weather.pressure}
-            clouds={weather.clouds}
+            temperature={temperature}
+            pressure={pressure}
+            clouds={clouds}
           />
         </div>
       </div>
