@@ -2,12 +2,7 @@ import qs from 'qs';
 import { isEmpty } from 'lodash';
 
 export default url => (params) => {
-  let fullUrl = '';
-  if (!isEmpty(params)) {
-    fullUrl = `${url}?${qs.stringify(params)}`;
-  } else {
-    fullUrl = `${url}`;
-  }
+  const fullUrl = (isEmpty(params)) ? `${url}` : `${url}?${qs.stringify(params)}`;
   return fetch(`http://localhost:3001/${fullUrl}`)
     .then((response) => {
       if (response.ok) {
