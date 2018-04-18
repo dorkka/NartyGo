@@ -5,39 +5,40 @@ import ResortsListHead from './ResortsListHead';
 import Pagination from './Pagination';
 import resourceFetcher from '../services/resourceFetcher';
 import ResortBasicInfo from './ResortBasicInfo';
+import ResortsMap from './ResortsMap';
 
 class ResortsData extends Component {
-    state = {
-      data: [],
-      pageCount: 1,
-      perPage: 3,
-      isLoading: false,
-      error: null,
-    };
+  state = {
+    data: [],
+    pageCount: 1,
+    perPage: 5,
+    isLoading: false,
+    error: null,
+  };
 
-    componentDidMount() {
+  componentDidMount() {
+    this.fetchResorts();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
       this.fetchResorts();
     }
-    componentDidUpdate(prevProps) {
-      if (prevProps.location.search !== this.props.location.search) {
-        this.fetchResorts();
-      }
-    }
+  }
 
-    fetchResorts() {
-      this.setState({ isLoading: true });
-      const { page: _page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
-      const { perPage: _limit } = this.state;
-      resourceFetcher('resorts')({ _page, _limit })
-        .then(({ data, headers }) => {
-          this.setState({
-            data,
-            pageCount: Math.ceil(headers.get('x-total-count') / this.state.perPage),
-            isLoading: false,
-          });
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
-    }
+  fetchResorts() {
+    this.setState({ isLoading: true });
+    const { page: _page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
+    const { perPage: _limit } = this.state;
+    resourceFetcher('resorts')({ _page, _limit })
+      .then(({ data, headers }) => {
+        this.setState({
+          data,
+          pageCount: Math.ceil(headers.get('x-total-count') / this.state.perPage),
+          isLoading: false,
+        });
+      })
+      .catch(error => this.setState({ error, isLoading: false }));
+  }
 
   handlePageClick = (data) => {
     const page = data.selected + 1;
@@ -57,17 +58,24 @@ class ResortsData extends Component {
     return (
       <div>
         <h2>Lista Ośrodków narciarskich</h2>
-        <table className="table table-striped">
-          <ResortsListHead />
-          <tbody>
-            {this.state.data.map(resort => <ResortBasicInfo resort={resort} />)}
-          </tbody>
-        </table>
-        <Pagination
-          pageCount={pageCount}
-          handlePageClick={this.handlePageClick}
-          page={page - 1}
-        />
+        <div className="row">
+          <div className="col-5">
+            <table className="table table-striped">
+              <ResortsListHead />
+              <tbody>
+                {data.map(resort => <ResortBasicInfo resort={resort} />)}
+              </tbody>
+            </table>
+            <Pagination
+              pageCount={pageCount}
+              handlePageClick={this.handlePageClick}
+              page={page - 1}
+            />
+          </div>
+          <div className="col-7">
+            <ResortsMap />
+          </div>
+        </div>
       </div>
     );
   }
