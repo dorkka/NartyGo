@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import qs from 'qs';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { map, isEmpty } from 'lodash';
 import ResortsListHead from './ResortsListHead';
-import Pagination from './Pagination';
+import Pagination from '../shared/Pagination';
 import resourceFetcher from '../services/resourceFetcher';
 import ResortBasicInfo from './ResortBasicInfo';
-import ResortsMap from './ResortsMap';
+import ResortsMap from '../shared/ResortsMap';
+import * as actions from '../store/resorts/actionCreators';
 
 class ResortsData extends Component {
-  state = {
-    data: [],
-    pageCount: 1,
-    perPage: 5,
-    isLoading: false,
-    error: null,
-  };
+  perPage = 5;
 
   componentDidMount() {
     this.fetchResorts();
@@ -26,18 +23,14 @@ class ResortsData extends Component {
   }
 
   fetchResorts() {
-    this.setState({ isLoading: true });
+    this.props.setIsLoading();
     const { page: _page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
-    const { perPage: _limit } = this.state;
-    resourceFetcher('resorts')({ _page, _limit })
+
+    resourceFetcher('resorts')({ _page, _limit: this.perPage })
       .then(({ data, headers }) => {
-        this.setState({
-          data,
-          pageCount: Math.ceil(headers.get('x-total-count') / this.state.perPage),
-          isLoading: false,
-        });
+        this.props.setResorts(data, headers, this.perPage);
       })
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.props.setError(error));
   }
 
   handlePageClick = (data) => {
@@ -48,12 +41,12 @@ class ResortsData extends Component {
   render() {
     const {
       data, pageCount, isLoading, error,
-    } = this.state;
+    } = this.props;
     const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
 
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
-    if (!data.length) { return <div>There is no data</div>; }
+    if (isEmpty(data)) { return <div>There is no data</div>; }
 
     return (
       <div>
@@ -63,7 +56,7 @@ class ResortsData extends Component {
             <table className="table table-striped">
               <ResortsListHead />
               <tbody>
-                {data.map(resort => <ResortBasicInfo resort={resort} />)}
+                {map(data, (resort) => <ResortBasicInfo resort={resort} />)}
               </tbody>
             </table>
             <Pagination
@@ -91,5 +84,32 @@ ResortsData.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
   }).isRequired,
+  setResorts: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
 };
-export default ResortsData;
+
+const mapStateToProps = (state) => ({
+  data: state.resorts.byId,
+  pageCount: state.resorts.pageCount,
+  isLoading: state.resorts.isLoading,
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   setResorts: () => dispatch(actions.setResorts),
+//   setError: () => dispatch(actions.setError),
+//   setIsLoading: () => dispatch(actions.setIsLoading),
+// });
+
+const mapDispatchToProps = {
+  setResorts: actions.setResorts,
+  setError: actions.setError,
+  setIsLoading: actions.setIsLoading,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResortsData);
+

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
 import resourceFetcher from '../../services/resourceFetcher';
-import ResortsMap from '../../components/ResortsMap';
+import ResortsMap from '../../shared/ResortsMap';
 
 class SpecificResortPage extends Component {
   state = {
