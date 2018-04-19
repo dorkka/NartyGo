@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import ResortsData from './components/ResortsData';
 import SpecificResortPage from './components/resortPage/SpecificResortPage';
-import FooterLayout from './components/FooterLayout';
-import TopLayout from './components/TopLayout';
+import FooterLayout from './layout/FooterLayout';
+import TopLayout from './layout/TopLayout';
 
 const LayoutWrapper = props => (
   <div className="container-fluid App">
