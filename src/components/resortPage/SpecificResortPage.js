@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
 import resourceFetcher from '../../services/resourceFetcher';
+import ResortsMap from '../../components/ResortsMap';
 
 class SpecificResortPage extends Component {
   state = {
@@ -34,7 +35,7 @@ class SpecificResortPage extends Component {
   render() {
     const {
       resort: {
-        name, piste, city, weather: { temperature, pressure, clouds },
+        name, piste, city, weather: { temperature, pressure, clouds }, coordinates,
       }, error, isLoading,
     } = this.state;
     if (error) { return (error.message); }
@@ -50,6 +51,9 @@ class SpecificResortPage extends Component {
             pressure={pressure}
             clouds={clouds}
           />
+          <div className="col-md-4">
+            <ResortsMap isMarkerShown coordinates={coordinates} />
+          </div>
         </div>
       </div>
     );
