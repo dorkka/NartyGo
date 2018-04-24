@@ -9,6 +9,7 @@ import resourceFetcher from '../services/resourceFetcher';
 import ResortBasicInfo from './ResortBasicInfo';
 import ResortsMap from '../shared/ResortsMap';
 import * as actions from '../store/resorts/actionCreators';
+import { getCurrentResorts } from '../store/resorts/selectors';
 
 class ResortsData extends Component {
   perPage = 5;
@@ -94,16 +95,10 @@ ResortsData.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  data: state.resorts.byId,
+  data: getCurrentResorts(state),
   pageCount: state.resorts.pageCount,
   isLoading: state.resorts.isLoading,
 });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   setResorts: () => dispatch(actions.setResorts),
-//   setError: () => dispatch(actions.setError),
-//   setIsLoading: () => dispatch(actions.setIsLoading),
-// });
 
 const mapDispatchToProps = {
   setResorts: actions.setResorts,

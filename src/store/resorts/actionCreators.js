@@ -27,3 +27,13 @@ export const setIsLoading = () => ({
   type: types.IS_LOADING,
 });
 
+export const setResort = data => {
+  const byId = { [data.id]: data };
+  return {
+    type: types.SET_RESORT,
+    payload: {
+      byId,
+    },
+  };
+};
+
