@@ -22,6 +22,16 @@ function resortsReducer(state = initialState, action) {
         isLoading: false,
       };
     }
+    case types.SET_RESORT: {
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          ...action.payload.byId,
+        },
+        isLoading: false,
+      };
+    }
     case types.SET_ERROR: {
       return { ...state, error: action.payload.error };
     }

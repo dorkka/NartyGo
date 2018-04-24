@@ -1,35 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
 import resourceFetcher from '../../services/resourceFetcher';
 import ResortsMap from '../../shared/ResortsMap';
+import { getSpecificResort } from '../../store/resorts/selectors';
+import * as actions from '../../store/resorts/actionCreators';
 
 class SpecificResortPage extends Component {
-  state = {
-    resort: {
-      weather: {},
-      piste: [],
-    },
-    isLoading: false,
-    error: null,
-  };
-
   componentDidMount() {
     this.fetchResort();
   }
 
   fetchResort() {
-    this.setState({ isLoading: true });
-
+    if (this.props.resort.id) {
+      return;
+    }
+    this.props.setIsLoading();
     resourceFetcher(`resorts/${this.props.match.params.id}`)()
       .then(({ data }) => {
-        this.setState({
-          resort: data,
-          isLoading: false,
-        });
+        this.props.setResort(data);
       })
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.props.setError(error));
   }
 
   render() {
@@ -37,7 +30,7 @@ class SpecificResortPage extends Component {
       resort: {
         name, piste, city, weather: { temperature, pressure, clouds }, coordinates,
       }, error, isLoading,
-    } = this.state;
+    } = this.props;
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
     return (
@@ -66,6 +59,23 @@ SpecificResortPage.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
+  setResort: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
+  resort: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
 };
 
-export default SpecificResortPage;
+const mapStateToProps = (state, ownProps) => ({
+  resort: getSpecificResort(state, ownProps.match.params.id),
+  isLoading: state.resorts.isLoading,
+});
+
+const mapDispatchToProps = {
+  setResort: actions.setResort,
+  setError: actions.setError,
+  setIsLoading: actions.setIsLoading,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SpecificResortPage);
