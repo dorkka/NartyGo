@@ -1,14 +1,13 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import resorts from './resorts/reducer';
 
 const rootReducer = combineReducers({
   resorts,
 });
 
-// const initialState = {};
-
 export default createStore(
   rootReducer,
-  composeWithDevTools(),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
