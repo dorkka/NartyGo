@@ -3,26 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ResortWeatherInfo from './ResortWeatherInfo';
 import ResortDetails from './ResortDetails';
-import resourceFetcher from '../../services/resourceFetcher';
 import ResortsMap from '../../shared/ResortsMap';
 import { getSpecificResort } from '../../store/resorts/selectors';
 import * as actions from '../../store/resorts/actionCreators';
 
 class SpecificResortPage extends Component {
   componentDidMount() {
-    this.fetchResort();
-  }
-
-  fetchResort() {
-    if (this.props.resort.id) {
-      return;
-    }
-    this.props.setIsLoading();
-    resourceFetcher(`resorts/${this.props.match.params.id}`)()
-      .then(({ data }) => {
-        this.props.setResort(data);
-      })
-      .catch(error => this.props.setError(error));
+    const { id } = this.props.match.params;
+    this.props.getSpecificResort(id);
   }
 
   render() {
@@ -59,9 +47,7 @@ SpecificResortPage.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
-  setResort: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
-  setIsLoading: PropTypes.func.isRequired,
+  getSpecificResort: PropTypes.func.isRequired,
   resort: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
@@ -73,7 +59,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  setResort: actions.setResort,
+  getSpecificResort: actions.getSpecificResort,
+  setSpecificResort: actions.setSpecificResort,
   setError: actions.setError,
   setIsLoading: actions.setIsLoading,
 };

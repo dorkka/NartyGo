@@ -1,4 +1,5 @@
 import * as types from './types';
+import resourceFetcher from '../../services/resourceFetcher';
 
 export const setResorts = (data, headers, perPage) => {
   const pageCount = Math.ceil(headers.get('x-total-count') / perPage);
@@ -27,7 +28,7 @@ export const setIsLoading = () => ({
   type: types.IS_LOADING,
 });
 
-export const setResort = data => {
+export const setSpecificResort = data => {
   const byId = { [data.id]: data };
   return {
     type: types.SET_RESORT,
@@ -35,5 +36,17 @@ export const setResort = data => {
       byId,
     },
   };
+};
+
+export const getSpecificResort = (id) => (dispatch, getState) => {
+  if (getState().resorts.byId[id]) {
+    return;
+  }
+  dispatch(setIsLoading());
+  resourceFetcher(`resorts/${id}`)()
+    .then(({ data }) => {
+      dispatch(setSpecificResort(data));
+    })
+    .catch(error => dispatch(setError(error)));
 };
 
