@@ -56,13 +56,11 @@ SpecificResortPage.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   resort: getSpecificResort(state, ownProps.match.params.id),
   isLoading: state.resorts.isLoading,
+  error: state.resorts.error,
 });
 
 const mapDispatchToProps = {
   getSpecificResort: actions.getSpecificResort,
-  setSpecificResort: actions.setSpecificResort,
-  setError: actions.setError,
-  setIsLoading: actions.setIsLoading,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SpecificResortPage);

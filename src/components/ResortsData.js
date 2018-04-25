@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
 import ResortsListHead from './ResortsListHead';
 import Pagination from '../shared/Pagination';
-import resourceFetcher from '../services/resourceFetcher';
 import ResortBasicInfo from './ResortBasicInfo';
 import ResortsMap from '../shared/ResortsMap';
 import * as actions from '../store/resorts/actionCreators';
@@ -17,6 +16,7 @@ class ResortsData extends Component {
   componentDidMount() {
     this.fetchResorts();
   }
+
   componentDidUpdate(prevProps) {
     if (prevProps.location.search !== this.props.location.search) {
       this.fetchResorts();
@@ -24,14 +24,8 @@ class ResortsData extends Component {
   }
 
   fetchResorts() {
-    this.props.setIsLoading();
-    const { page: _page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
-
-    resourceFetcher('resorts')({ _page, _limit: this.perPage })
-      .then(({ data, headers }) => {
-        this.props.setResorts(data, headers, this.perPage);
-      })
-      .catch(error => this.props.setError(error));
+    const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
+    this.props.getResorts(page, this.perPage);
   }
 
   handlePageClick = (data) => {
@@ -85,10 +79,8 @@ ResortsData.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
   }).isRequired,
-  setResorts: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
-  setIsLoading: PropTypes.func.isRequired,
   resorts: PropTypes.array.isRequired,
+  getResorts: PropTypes.func.isRequired,
   pageCount: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
@@ -98,12 +90,11 @@ const mapStateToProps = (state) => ({
   resorts: getCurrentResorts(state),
   pageCount: state.resorts.pageCount,
   isLoading: state.resorts.isLoading,
+  error: state.resorts.error,
 });
 
 const mapDispatchToProps = {
-  setResorts: actions.setResorts,
-  setError: actions.setError,
-  setIsLoading: actions.setIsLoading,
+  getResorts: actions.getResorts,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResortsData);
