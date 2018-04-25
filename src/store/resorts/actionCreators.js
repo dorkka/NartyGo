@@ -38,8 +38,17 @@ export const setSpecificResort = data => {
   };
 };
 
+export const getResorts = (_page, _limit) => (dispatch) => {
+  dispatch(setIsLoading());
+  resourceFetcher('resorts')({ _page, _limit })
+    .then(({ data, headers }) => {
+      dispatch(setResorts(data, headers, _limit));
+    })
+    .catch(error => dispatch(setError(error)));
+};
+
 export const getSpecificResort = (id) => (dispatch, getState) => {
-  if (getState().resorts.byId[id]) {
+  if (getSpecificResort(getState(), id).id) {
     return;
   }
   dispatch(setIsLoading());
