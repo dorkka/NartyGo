@@ -12,9 +12,13 @@ const ResortsMap = compose(
   withScriptjs,
   withGoogleMap,
 )(props => (
-
-  <GoogleMap defaultZoom={5.8} defaultCenter={{ lat: 52.068, lng: 19.4797 }}>
-    {props.isMarkerShown && <Marker position={props.coordinates} />}
+  <GoogleMap defaultZoom={props.zoom} defaultCenter={props.defaultCenter}>
+    {props.isResorts ? (
+      props.markersPositions.map((markerPosition) =>
+        <Marker position={markerPosition} />)
+    ) : (
+      <Marker position={props.coordinates} />
+      )}
   </GoogleMap>
 ));
 
