@@ -33,7 +33,7 @@ class SpecificResortPage extends Component {
             clouds={clouds}
           />
           <div className="col-md-4">
-            <ResortsMap isMarkerShown coordinates={coordinates} />
+            <ResortsMap coordinates={coordinates} zoom={10} defaultCenter={coordinates} />
           </div>
         </div>
       </div>
