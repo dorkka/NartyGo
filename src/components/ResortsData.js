@@ -11,7 +11,7 @@ import * as actions from '../store/resorts/actionCreators';
 import { getCurrentResorts } from '../store/resorts/selectors';
 
 class ResortsData extends Component {
-  perPage = 5;
+  perPage = 4;
 
   componentDidMount() {
     this.fetchResorts();
@@ -32,7 +32,6 @@ class ResortsData extends Component {
     const page = data.selected + 1;
     this.props.history.push(`${this.props.match.url}?page=${page}`);
   };
-
   render() {
     const {
       data, pageCount, isLoading, error,
@@ -42,7 +41,6 @@ class ResortsData extends Component {
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
     if (isEmpty(data)) { return <div>There is no data</div>; }
-
     return (
       <div>
         <h2>Lista Ośrodków narciarskich</h2>
@@ -61,7 +59,7 @@ class ResortsData extends Component {
             />
           </div>
           <div className="col-7">
-            <ResortsMap />
+            <ResortsMap zoom={5.7} defaultCenter={{ lat: 52.068, lng: 19.4797 }} isResorts  markersPositions={data.map(resort => resort.coordinates)}/>
           </div>
         </div>
       </div>
