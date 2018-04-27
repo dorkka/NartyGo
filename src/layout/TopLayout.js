@@ -19,7 +19,7 @@ class TopLayout extends Component {
         </nav>
         <div className="jumbotron">
           <h1 className="display-4">Witamy w serwisie NartyGo</h1>
-          <p className="lead">NartyGo to najnepszy serwis narciarski z najaktualniejszymi informacjami o ośrodkach narciarskich i warunkach na trasach!</p>
+          <p className="lead">NartyGo to najlepszy serwis narciarski z najaktualniejszymi informacjami o ośrodkach narciarskich i warunkach na trasach!</p>
         </div>
         <div className="row">
           <div className="col-md-3">
