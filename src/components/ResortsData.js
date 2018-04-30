@@ -60,7 +60,12 @@ class ResortsData extends Component {
             />
           </div>
           <div className="col-7">
-            <ResortsMap zoom={5.7} defaultCenter={{ lat: 52.068, lng: 19.4797 }} isResorts  markersPositions={data.map(resort => resort.coordinates)}/>
+            <ResortsMap
+              zoom={5.7}
+              defaultCenter={{ lat: 52.068, lng: 19.4797 }}
+              isResorts
+              markersPositions={resorts.map(resort => resort.coordinates)}
+            />
           </div>
         </div>
       </div>
