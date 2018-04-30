@@ -15,9 +15,10 @@ const ResortsMap = compose(
   <GoogleMap defaultZoom={props.zoom} defaultCenter={props.defaultCenter}>
     {props.isResorts ? (
       props.markersPositions.map((markerPosition) =>
-        <Marker position={markerPosition} />)
-    ) : (
-      <Marker position={props.coordinates} />
+        <Marker clickable position={markerPosition} />)
+    ) :
+      (
+        <Marker clickable position={props.coordinates} />
       )}
   </GoogleMap>
 ));
