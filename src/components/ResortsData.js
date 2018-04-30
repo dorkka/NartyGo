@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import qs from 'qs';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { map, isEmpty } from 'lodash';
+import { isEmpty } from 'lodash';
 import ResortsListHead from './ResortsListHead';
 import Pagination from '../shared/Pagination';
 import resourceFetcher from '../services/resourceFetcher';
@@ -41,13 +41,13 @@ class ResortsData extends Component {
 
   render() {
     const {
-      data, pageCount, isLoading, error,
+      resorts, pageCount, isLoading, error,
     } = this.props;
     const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
 
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
-    if (isEmpty(data)) { return <div>There is no data</div>; }
+    if (isEmpty(resorts)) { return <div>There is no data</div>; }
 
     return (
       <div>
@@ -57,7 +57,7 @@ class ResortsData extends Component {
             <table className="table table-striped">
               <ResortsListHead />
               <tbody>
-                {map(data, (resort) => <ResortBasicInfo resort={resort} />)}
+                {resorts.map(resort => <ResortBasicInfo resort={resort} />)}
               </tbody>
             </table>
             <Pagination
@@ -88,14 +88,14 @@ ResortsData.propTypes = {
   setResorts: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   setIsLoading: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  resorts: PropTypes.array.isRequired,
   pageCount: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  data: getCurrentResorts(state),
+  resorts: getCurrentResorts(state),
   pageCount: state.resorts.pageCount,
   isLoading: state.resorts.isLoading,
 });
