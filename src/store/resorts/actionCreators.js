@@ -48,7 +48,7 @@ export const getResorts = (_page, _limit) => (dispatch) => {
 };
 
 export const getSpecificResort = (id) => (dispatch, getState) => {
-  if (getSpecificResort(getState(), id).id) {
+  if ((getState().resorts.byId[id])) {
     return;
   }
   dispatch(setIsLoading());
