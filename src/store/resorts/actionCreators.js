@@ -40,7 +40,7 @@ export const setSpecificResort = data => {
 
 export const getResorts = (_page, _limit) => (dispatch) => {
   dispatch(setIsLoading());
-  resourceFetcher('resorts')({ _page, _limit })
+  resourceFetcher('http://localhost:3001/resorts')({ _page, _limit })
     .then(({ data, headers }) => {
       dispatch(setResorts(data, headers, _limit));
     })
@@ -52,7 +52,7 @@ export const getSpecificResort = (id) => (dispatch, getState) => {
     return;
   }
   dispatch(setIsLoading());
-  resourceFetcher(`resorts/${id}`)()
+  resourceFetcher(`http://localhost:3001/resorts/${id}`)()
     .then(({ data }) => {
       dispatch(setSpecificResort(data));
     })
