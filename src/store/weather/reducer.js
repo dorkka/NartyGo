@@ -2,6 +2,7 @@ import * as types from './types';
 
 const initialState = {
   currentWeather: {},
+  weatherTime: 0,
   isLoading: false,
   error: null,
 };
@@ -12,6 +13,7 @@ function weatherReducer(state = initialState, action) {
       return {
         ...state,
         currentWeather: { ...action.payload.data },
+        weatherTime: action.payload.weatherTime,
         isLoading: false,
       };
     }
