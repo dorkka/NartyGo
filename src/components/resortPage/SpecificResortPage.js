@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ResortWeatherInfo from './ResortWeatherInfo';
+import ResortWeather from '../../shared/ResortWeather';
 import ResortDetails from './ResortDetails';
 import ResortsMap from '../../shared/ResortsMap';
 import { getSpecificResort } from '../../store/resorts/selectors';
@@ -16,7 +16,7 @@ class SpecificResortPage extends Component {
   render() {
     const {
       resort: {
-        name, piste, city, weather: { temperature, pressure, clouds }, coordinates,
+        name, piste, city, coordinates, cityId,
       }, error, isLoading,
     } = this.props;
     if (error) { return (error.message); }
@@ -27,11 +27,7 @@ class SpecificResortPage extends Component {
         <h4>Ośrodek narciarski: {name}</h4>
         <div className="row">
           <ResortDetails city={city} piste={piste.length} />
-          <ResortWeatherInfo
-            temperature={temperature}
-            pressure={pressure}
-            clouds={clouds}
-          />
+          <ResortWeather cityId={cityId} />
           <div className="col-md-4">
             <ResortsMap coordinates={coordinates} zoom={10} defaultCenter={coordinates} />
           </div>
