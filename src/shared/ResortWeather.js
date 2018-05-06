@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ResortWeatherInfo from '../components/resortPage/ResortWeatherInfo';
 import * as actions from '../store/weather/actionCreators';
 
 class ResortWeather extends Component {
@@ -10,12 +11,12 @@ class ResortWeather extends Component {
   }
 
   render() {
-    const { isLoading, error, currentWeather } = this.props;
+    const { isLoading, error, currentWeather: { list: [{ visibility}] } } = this.props;
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
     return (
       <div className="col-md-4">
-        
+        <ResortWeatherInfo />
       </div>
     );
   }
