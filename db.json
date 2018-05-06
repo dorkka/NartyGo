@@ -1,44 +1,24 @@
 {
     "resorts":[
-        {"id": 1, "name": "Czantoria", "city": "Ustroń",
+        {"id": 1, "name": "Czantoria", "city": "Ustroń", "cityId": 7531846,
           "coordinates": {"lat": 49.6833162, "lng": 18.8196089},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "1012 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "blue"}
         ]},
-        {"id": 2, "name": "Karlików", "city": "Karlików",
+        {"id": 2, "name": "Karlików", "city": "Karlików", "cityId": 7531370,
           "coordinates": {"lat": 49.435290, "lng": 22.067767},
-          "weather":{
-            "temperature": "-2 oC",
-            "pressure": "1000 hPa",
-            "clouds": "częściowo słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "Mała Palenica"}
         ]},
-        {"id": 3, "name": "Poniwiec", "city": "Ustroń",
+        {"id": 3, "name": "Poniwiec", "city": "Ustroń", "cityId": 7531846,
           "coordinates": {"lat": 49.6912167, "lng": 18.7876183},
-          "weather":{
-            "temperature": "-15 oC",
-            "pressure": "1022 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 4, "name": "Cieńków", "city": "Wisła",
+        {"id": 4, "name": "Cieńków", "city": "Wisła", "cityId": 7532559,
           "coordinates": {"lat": 49.6225722, "lng": 18.9380942},
-          "weather":{
-            "temperature": "-1 oC",
-            "pressure": "999 hPa",
-            "clouds": "pochmurnie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": ""},
             {"id":2, "number": 2, "name": ""},
@@ -46,112 +26,62 @@
             {"id":4, "number": 4, "name": ""},
             {"id":5, "number": 5, "name": ""}
         ]},
-        {"id": 5, "name": "Biały Krzyż", "city": "Szczyrk",
+        {"id": 5, "name": "Biały Krzyż", "city": "Szczyrk", "cityId": 7532564,
           "coordinates": {"lat": 49.6685428, "lng": 18.9609749},
-          "weather":{
-            "temperature": "6 oC",
-            "pressure": "1002 hPa",
-            "clouds": "duże zachmurzenie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 6, "name": "Siglany", "city": "Wisła",
+        {"id": 6, "name": "Siglany", "city": "Wisła", "cityId": 7532559,
           "coordinates": {"lat": 49.6388231, "lng": 18.8656753},
-          "weather":{
-            "temperature": "-2 oC",
-            "pressure": "989 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 7, "name": "Kotelnica Białczańska ", "city": "Białka Tatrzańska",
+        {"id": 7, "name": "Kotelnica Białczańska ", "city": "Białka Tatrzańska", "cityId": 3080866,
           "coordinates": {"lat": 49.390558, "lng": 20.097502},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "1012 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 8, "name": "Ski-Dolina", "city": "Brenna",
+        {"id": 8, "name": "Ski-Dolina", "city": "Brenna", "cityId": 3102652,
           "coordinates": {"lat": 49.6847231, "lng": 18.9110062},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "912 hPa",
-            "clouds": "duże zachmurzenie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 9, "name": "Kasprowy Wierch", "city": "Zakopane",
+        {"id": 9, "name": "Kasprowy Wierch", "city": "Zakopane", "cityId": 3080866,
           "coordinates": {"lat": 49.2328651, "lng": 19.9828005},
-          "weather":{
-            "temperature": "-8 oC",
-            "pressure": "1011 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 10, "name": "Nosal", "city": "Zakopane",
+        {"id": 10, "name": "Nosal", "city": "Zakopane", "cityId": 3080866,
           "coordinates": {"lat": 49.2838091, "lng": 19.9859937},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "1012 hPa",
-            "clouds": "pochmurnie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 11, "name": "BIAŁY JAR WINTERPOL", "city": "Karpacz",
+        {"id": 11, "name": "BIAŁY JAR WINTERPOL", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.773145, "lng": 15.738565},
-          "weather":{
-            "temperature": "4 oC",
-            "pressure": "982 hPa",
-            "clouds": "pochmurnie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 12, "name": "Palenica", "city": "Ustroń",
+        {"id": 12, "name": "Palenica", "city": "Ustroń", "cityId": 7531846,
           "coordinates": {"lat": 49.6955791, "lng": 18.837671},
-          "weather":{
-            "temperature": "-2 oC",
-            "pressure": "1000 hPa",
-            "clouds": "częściowo słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "Mała Palenica"},
             {"id":2, "number": 2, "name": "Duża Palenica"}
         ]},
-        {"id": 13, "name": "Kompleks narciarski Śnieżka", "city": "Karpacz",
+        {"id": 13, "name": "Kompleks narciarski Śnieżka", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.773145, "lng": 15.738565},
-          "weather":{
-            "temperature": "-25 oC",
-            "pressure": "1012 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 14, "name": "Czarna Góra Resort", "city": "Karpacz",
+        {"id": 14, "name": "Czarna Góra Resort", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.260140, "lng": 16.819221},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "998 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "A"},
             {"id":2, "number": 2, "name": "B FIS"},
@@ -159,57 +89,32 @@
             {"id":4, "number": 4, "name": "Czarodziejska Polana"}
 
         ]},
-        {"id": 15, "name": "Kolorowa", "city": "Karpacz",
+        {"id": 15, "name": "Kolorowa", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.773837, "lng": 15.7552958},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "1012 hPa",
-            "clouds": "częściowo słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 16, "name": "Strzyżów", "city": "Strzyżów",
+        {"id": 16, "name": "Strzyżów", "city": "Strzyżów", "cityId": 7533301,
           "coordinates": {"lat": 49.870470, "lng": 21.793860},
-          "weather":{
-            "temperature": "-2 oC",
-            "pressure": "1000 hPa",
-            "clouds": "częściowo słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": ""},
             {"id":2, "number": 2, "name": ""}
         ]},
-        {"id": 17, "name": "Karpatka", "city": "Karpacz",
+        {"id": 17, "name": "Karpatka", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.781286, "lng": 15.7534916},
-          "weather":{
-            "temperature": "0 oC",
-            "pressure": "1012 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 18, "name": "Polana Szymoszkowa", "city": "Zakopane",
+        {"id": 18, "name": "Polana Szymoszkowa", "city": "Zakopane", "cityId": 3080866,
           "coordinates": {"lat": 49.2933755, "lng": 19.9291295},
-          "weather":{
-            "temperature": "3 oC",
-            "pressure": "1009 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
         ]},
-        {"id": 19, "name": "STACJA NARCIARSKA POD WANGIEM", "city": "Karpacz",
+        {"id": 19, "name": "STACJA NARCIARSKA POD WANGIEM", "city": "Karpacz", "cityId": 7532480,
           "coordinates": {"lat": 50.7789982, "lng": 15.7305766},
-          "weather":{
-            "temperature": "-5 oC",
-            "pressure": "998 hPa",
-            "clouds": "słonecznie"
-          },
           "piste":[
             {"id":1, "number": 1, "name": "red"},
             {"id":2, "number": 2, "name": "green"}
