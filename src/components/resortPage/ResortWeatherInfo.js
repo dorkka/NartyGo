@@ -11,7 +11,7 @@ class ResortWeatherInfo extends Component {
         <h4>Pogoda</h4>
         <p>Temperatura: {temperature} oC</p>
         <p>Temperatura min: {temperatureMin} oC</p>
-        <p>Temperatura min: {temperatureMax} oC</p>
+        <p>Temperatura max: {temperatureMax} oC</p>
         <p>Ciśnienie: {pressure} hPa</p>
         <p>Wiatr: {wind} m/s</p>
         <p>Zachmurzenie: {clouds}</p>
@@ -23,14 +23,14 @@ class ResortWeatherInfo extends Component {
 }
 
 ResortWeatherInfo.propTypes = {
-  temperature: PropTypes.string.isRequired,
-  temperatureMin: PropTypes.string.isRequired,
-  temperatureMax: PropTypes.string.isRequired,
-  pressure: PropTypes.string.isRequired,
-  wind: PropTypes.string.isRequired,
+  temperature: PropTypes.number.isRequired,
+  temperatureMin: PropTypes.number.isRequired,
+  temperatureMax: PropTypes.number.isRequired,
+  pressure: PropTypes.number.isRequired,
+  wind: PropTypes.number.isRequired,
   clouds: PropTypes.string.isRequired,
-  sunrise: PropTypes.string.isRequired,
-  sunset: PropTypes.string.isRequired,
+  sunrise: PropTypes.number.isRequired,
+  sunset: PropTypes.number.isRequired,
 };
 
 export default ResortWeatherInfo;

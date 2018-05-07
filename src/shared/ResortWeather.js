@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ResortWeatherInfo from '../components/resortPage/ResortWeatherInfo';
+import { getCurrentWeather } from '../store/weather/selectors';
 import * as actions from '../store/weather/actionCreators';
 
 class ResortWeather extends Component {
@@ -11,12 +12,12 @@ class ResortWeather extends Component {
   }
 
   render() {
-    const { isLoading, error, currentWeather: { list: [{ visibility}] } } = this.props;
+    const { isLoading, error, currentWeather } = this.props;
     if (error) { return (error.message); }
-    if (isLoading) { return <div>Loading in progress</div>; }
+    if (isLoading) { return <div>Weather Loading in progress</div>; }
     return (
       <div className="col-md-4">
-        <ResortWeatherInfo />
+        <ResortWeatherInfo {...currentWeather} />
       </div>
     );
   }
@@ -25,13 +26,13 @@ class ResortWeather extends Component {
 ResortWeather.propTypes = {
   getWeather: PropTypes.func.isRequired,
   currentWeather: PropTypes.object.isRequired,
-  cityId: PropTypes.string.isRequired,
+  cityId: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  currentWeather: state.weather.currentWeather,
+const mapStateToProps = (state, ownProps) => ({
+  currentWeather: getCurrentWeather(state, ownProps.cityId),
   isLoading: state.weather.isLoading,
   error: state.weather.error,
 });

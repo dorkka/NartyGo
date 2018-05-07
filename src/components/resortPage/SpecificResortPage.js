@@ -20,7 +20,7 @@ class SpecificResortPage extends Component {
       }, error, isLoading,
     } = this.props;
     if (error) { return (error.message); }
-    if (isLoading) { return <div>Loading in progress</div>; }
+    if (isLoading || !cityId) { return <div>Loading in progress</div>; }
     return (
       <div className="container-fluid App">
         <hr />
