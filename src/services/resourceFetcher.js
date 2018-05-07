@@ -2,8 +2,8 @@ import qs from 'qs';
 import { isEmpty } from 'lodash';
 
 export default url => (params) => {
-  const fullUrl = (isEmpty(params)) ? `${url}` : `${url}?${qs.stringify(params)}`;
-  return fetch(`${fullUrl}`)
+  const fullUrl = (isEmpty(params)) ? url : `${url}?${qs.stringify(params)}`;
+  return fetch(fullUrl)
     .then((response) => {
       if (response.ok) {
         return response.json().then(data => ({ data, headers: response.headers }));

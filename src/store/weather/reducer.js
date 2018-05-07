@@ -1,7 +1,7 @@
 import * as types from './types';
 
 const initialState = {
-  currentWeather: {},
+  byId: {},
   weatherTime: 0,
   isLoading: false,
   error: null,
@@ -12,13 +12,16 @@ function weatherReducer(state = initialState, action) {
     case types.SET_WEATHER: {
       return {
         ...state,
-        currentWeather: { ...action.payload.data },
-        weatherTime: action.payload.weatherTime,
+        byId: {
+          ...state.byId,
+          ...action.payload.byId,
+        },
+        weatherTime: action.meta.weatherTime,
         isLoading: false,
       };
     }
     case types.SET_ERROR: {
-      return { ...state, error: action.payload.error };
+      return { ...state, error: action.error };
     }
     case types.IS_LOADING: {
       return { ...state, isLoading: true };

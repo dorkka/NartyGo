@@ -33,7 +33,7 @@ function resortsReducer(state = initialState, action) {
       };
     }
     case types.SET_ERROR: {
-      return { ...state, error: action.payload.error };
+      return { ...state, error: action.error };
     }
     case types.IS_LOADING: {
       return { ...state, isLoading: true };
