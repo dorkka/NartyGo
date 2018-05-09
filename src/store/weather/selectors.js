@@ -1,21 +1,19 @@
 
 export const getCurrentWeather = (state, cityId) => {
-  const weather = state.weather.byId[cityId];
-  if (!weather) {
-    return ({});
-  }
+  const weatherFromStore = state.weather.byId[cityId] || {};
+  const weatherWithDefaults = {
+    main: {}, weather: [{}], wind: {}, sys: {}, ...weatherFromStore,
+  };
 
   return ({
-    temperature: weather.main.temp,
-    temperatureMin: weather.main.temp_min,
-    temperatureMax: weather.main.temp_max,
-    pressure: weather.main.pressure,
-    wind: weather.wind.speed,
-    clouds: weather.weather[0].description,
-    sunrise: weather.sys.sunrise,
-    sunset: weather.sys.sunset,
-  } || {
-    main: {}, weather: [], wind: {}, sys: {},
+    temperature: weatherWithDefaults.main.temp,
+    temperatureMin: weatherWithDefaults.main.temp_min,
+    temperatureMax: weatherWithDefaults.main.temp_max,
+    pressure: weatherWithDefaults.main.pressure,
+    wind: weatherWithDefaults.wind.speed,
+    clouds: weatherWithDefaults.weather[0].description,
+    sunrise: weatherWithDefaults.sys.sunrise,
+    sunset: weatherWithDefaults.sys.sunset,
   });
 };
 
