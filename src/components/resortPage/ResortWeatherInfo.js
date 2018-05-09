@@ -9,28 +9,28 @@ class ResortWeatherInfo extends Component {
     return (
       <div >
         <h4>Pogoda</h4>
-        <p>Temperatura: {temperature} oC</p>
-        <p>Temperatura min: {temperatureMin} oC</p>
-        <p>Temperatura max: {temperatureMax} oC</p>
-        <p>Ciśnienie: {pressure} hPa</p>
-        <p>Wiatr: {wind} m/s</p>
-        <p>Zachmurzenie: {clouds}</p>
-        <p>Wschód słońca: {sunrise}</p>
-        <p>Zachód słońca: {sunset}</p>
+        <p>Temperatura: {temperature || '-'} oC</p>
+        <p>Temperatura min: {temperatureMin || '-'} oC</p>
+        <p>Temperatura max: {temperatureMax || '-'} oC</p>
+        <p>Ciśnienie: {pressure || '-'} hPa</p>
+        <p>Wiatr: {wind || '-'} m/s</p>
+        <p>Zachmurzenie: {clouds || '-'}</p>
+        <p>Wschód słońca: {sunrise || '-'}</p>
+        <p>Zachód słońca: {sunset || '-'}</p>
       </div>
     );
   }
 }
 
 ResortWeatherInfo.propTypes = {
-  temperature: PropTypes.number.isRequired,
-  temperatureMin: PropTypes.number.isRequired,
-  temperatureMax: PropTypes.number.isRequired,
-  pressure: PropTypes.number.isRequired,
-  wind: PropTypes.number.isRequired,
-  clouds: PropTypes.string.isRequired,
-  sunrise: PropTypes.number.isRequired,
-  sunset: PropTypes.number.isRequired,
+  temperature: PropTypes.number,
+  temperatureMin: PropTypes.number,
+  temperatureMax: PropTypes.number,
+  pressure: PropTypes.number,
+  wind: PropTypes.number,
+  clouds: PropTypes.string,
+  sunrise: PropTypes.number,
+  sunset: PropTypes.number,
 };
 
 export default ResortWeatherInfo;
