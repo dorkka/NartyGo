@@ -28,5 +28,8 @@
       "jest": true,
       "fetch": true,
       "document": true
-    }
+    },
+    "env": {
+      "jest": true
+  }
 }
