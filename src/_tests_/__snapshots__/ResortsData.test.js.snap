@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResortsData render component should render component 1`] = `
+<div>
+  <h2>
+    Lista Ośrodków narciarskich
+  </h2>
+  <div
+    className="row"
+  >
+    <div
+      className="col-5"
+    >
+      <table
+        className="table table-striped"
+      >
+        <ResortsListHead />
+        <tbody>
+          <ResortBasicInfo
+            resort={
+              Object {
+                "city": "Ustroń",
+                "cityId": 7531846,
+                "coordinates": Object {
+                  "lat": 49.6833162,
+                  "lng": 18.8196089,
+                },
+                "id": 1,
+                "name": "Czantoria",
+                "piste": Array [
+                  Object {
+                    "id": 1,
+                    "name": "red",
+                    "number": 1,
+                  },
+                  Object {
+                    "id": 2,
+                    "name": "blue",
+                    "number": 2,
+                  },
+                ],
+              }
+            }
+          />
+          <ResortBasicInfo
+            resort={
+              Object {
+                "city": "Karlików",
+                "cityId": 7531370,
+                "coordinates": Object {
+                  "lat": 49.43529,
+                  "lng": 22.067767,
+                },
+                "id": 2,
+                "name": "Karlików",
+                "piste": Array [
+                  Object {
+                    "id": 1,
+                    "name": "Mała Palenica",
+                    "number": 1,
+                  },
+                ],
+              }
+            }
+          />
+          <ResortBasicInfo
+            resort={
+              Object {
+                "city": "Szczyrk",
+                "cityId": 7532564,
+                "coordinates": Object {
+                  "lat": 49.6685428,
+                  "lng": 18.9609749,
+                },
+                "id": 3,
+                "name": "Biały Krzyż\\"",
+                "piste": Array [
+                  Object {
+                    "id": 1,
+                    "name": "red",
+                    "number": 1,
+                  },
+                  Object {
+                    "id": 2,
+                    "name": "green",
+                    "number": 2,
+                  },
+                ],
+              }
+            }
+          />
+        </tbody>
+      </table>
+      <Pagination
+        handlePageClick={[Function]}
+        page={5}
+        pageCount={1}
+      />
+    </div>
+    <div
+      className="col-7"
+    >
+      <withProps(withScriptjs(withGoogleMap(Component)))
+        defaultCenter={
+          Object {
+            "lat": 52.068,
+            "lng": 19.4797,
+          }
+        }
+        isResorts={true}
+        markersPositions={
+          Array [
+            Object {
+              "lat": 49.6833162,
+              "lng": 18.8196089,
+            },
+            Object {
+              "lat": 49.43529,
+              "lng": 22.067767,
+            },
+            Object {
+              "lat": 49.6685428,
+              "lng": 18.9609749,
+            },
+          ]
+        }
+        zoom={5.7}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResortsData render component should render error message 1`] = `"test error"`;
+
+exports[`ResortsData render component should render loading in progress 1`] = `
+<div>
+  Loading in progress
+</div>
+`;
+
+exports[`ResortsData render component should render no data 1`] = `
+<div>
+  There is no data
+</div>
+`;

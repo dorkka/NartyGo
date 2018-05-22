@@ -10,7 +10,7 @@ import ResortsMap from '../shared/ResortsMap';
 import * as actions from '../store/resorts/actionCreators';
 import { getCurrentResorts } from '../store/resorts/selectors';
 
-class ResortsData extends Component {
+export class ResortsData extends Component {
   perPage = 4;
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class ResortsData extends Component {
   }
 
   fetchResorts() {
-    const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
+    const { page = '1' } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
     this.props.getResorts(page, this.perPage);
   }
 
@@ -36,7 +36,7 @@ class ResortsData extends Component {
     const {
       resorts, pageCount, isLoading, error,
     } = this.props;
-    const { page = 1 } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
+    const { page = '1' } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
 
     if (error) { return (error.message); }
     if (isLoading) { return <div>Loading in progress</div>; }
@@ -75,7 +75,7 @@ class ResortsData extends Component {
 
 ResortsData.propTypes = {
   location: PropTypes.shape({
-    search: PropTypes.number,
+    search: PropTypes.string,
   }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
@@ -87,7 +87,7 @@ ResortsData.propTypes = {
   getResorts: PropTypes.func.isRequired,
   pageCount: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({

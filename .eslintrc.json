@@ -27,7 +27,9 @@
     "globals":{
       "jest": true,
       "fetch": true,
-      "document": true
+      "document": true,
+      "buildSetup": true,
+      "fixture": true
     },
     "env": {
       "jest": true
