@@ -1,4 +1,4 @@
-import { SpecificResortPage } from '../components/resortPage/SpecificResortPage';
+import { SpecificResortPage } from '../SpecificResortPage';
 
 describe('SpecificResortPage', () => {
   const defaultProps = {

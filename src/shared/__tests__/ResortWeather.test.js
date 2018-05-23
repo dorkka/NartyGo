@@ -1,4 +1,4 @@
-import { ResortWeather } from '../shared/ResortWeather';
+import { ResortWeather } from '../ResortWeather';
 
 describe('ResortWeather', () => {
   const defaultProps = {

@@ -1,4 +1,4 @@
-import { ResortsData } from '../components/ResortsData';
+import { ResortsData } from '../ResortsData';
 
 describe('ResortsData', () => {
   const defaultProps = {
