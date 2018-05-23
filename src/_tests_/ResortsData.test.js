@@ -37,7 +37,7 @@ describe('ResortsData', () => {
     });
 
     test('should render no data', () => {
-      const { wrapper } = setup({ resorts: fixture.emptyResorts });
+      const { wrapper } = setup({ resorts: [] });
       expect(wrapper).toMatchSnapshot();
     });
   });
