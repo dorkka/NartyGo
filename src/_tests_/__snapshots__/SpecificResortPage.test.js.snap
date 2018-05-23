@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpecificResortPage render component should render component 1`] = `
+<div
+  className="container-fluid App"
+>
+  <hr />
+  <h4>
+    Ośrodek narciarski: 
+    Czantoria
+  </h4>
+  <div
+    className="row"
+  >
+    <ResortDetails
+      city="Ustroń"
+      piste={2}
+    />
+    <Connect(ResortWeather)
+      cityId={7531846}
+    />
+    <div
+      className="col-md-4"
+    >
+      <withProps(withScriptjs(withGoogleMap(Component)))
+        coordinates={
+          Object {
+            "lat": 49.6833162,
+            "lng": 18.8196089,
+          }
+        }
+        defaultCenter={
+          Object {
+            "lat": 49.6833162,
+            "lng": 18.8196089,
+          }
+        }
+        zoom={10}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SpecificResortPage render component should render error message 1`] = `"test error"`;
+
+exports[`SpecificResortPage render component should render loading in progres when cityId is falsy 1`] = `
+<div>
+  Loading in progress
+</div>
+`;
+
+exports[`SpecificResortPage render component should render loading in progres when isLoading is truthy 1`] = `
+<div>
+  Loading in progress
+</div>
+`;
