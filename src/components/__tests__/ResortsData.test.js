@@ -1,4 +1,5 @@
 import { ResortsData } from '../ResortsData';
+import { resorts } from '../../specs/fixtures/resorts';
 
 describe('ResortsData', () => {
   const defaultProps = {
@@ -11,7 +12,7 @@ describe('ResortsData', () => {
     match: {
       url: 'http://localhost:3000/',
     },
-    resorts: fixture.resorts,
+    resorts,
     getResorts: () => { },
     pageCount: 1,
     isLoading: false,
@@ -46,9 +47,10 @@ describe('ResortsData', () => {
     // testing various options for learning porpose
     test('should call fetchResorts', () => {
       const { wrapper } = setup();
-      wrapper.instance().fetchResorts = jest.fn();
-      wrapper.instance().componentDidMount();
-      expect(wrapper.instance().fetchResorts).toHaveBeenCalled();
+      const instance = wrapper.instance();
+      instance.fetchResorts = jest.fn();
+      instance.componentDidMount();
+      expect(instance.fetchResorts).toHaveBeenCalled();
     });
 
     test('should call getResorts', () => {
@@ -70,23 +72,26 @@ describe('ResortsData', () => {
   describe('commponentDidUpdate', () => {
     test('should call fetchResorts if search has changed', () => {
       const { wrapper } = setup();
-      wrapper.instance().fetchResorts = jest.fn();
-      wrapper.instance().componentDidUpdate({ location: { search: '?page=5' } });
-      expect(wrapper.instance().fetchResorts).toHaveBeenCalled();
+      const instance = wrapper.instance();
+      instance.fetchResorts = jest.fn();
+      instance.componentDidUpdate({ location: { search: '?page=5' } });
+      expect(instance.fetchResorts).toHaveBeenCalled();
     });
 
     test('should not call fetchResorts if search has not change', () => {
       const { wrapper, props } = setup();
-      wrapper.instance().fetchResorts = jest.fn();
-      wrapper.instance().componentDidUpdate(props);
-      expect(wrapper.instance().fetchResorts).not.toHaveBeenCalled();
+      const instance = wrapper.instance();
+      instance.fetchResorts = jest.fn();
+      instance.componentDidUpdate(props);
+      expect(instance.fetchResorts).not.toHaveBeenCalled();
     });
   });
 
   describe('handlePageClick', () => {
     test('should call push with appropriate argument', () => {
       const { wrapper, props } = setup();
-      wrapper.instance().handlePageClick({ selected: 3 });
+      const instance = wrapper.instance();
+      instance.handlePageClick({ selected: 3 });
       expect(props.history.push).toHaveBeenCalledWith('http://localhost:3000/?page=4');
     });
   });

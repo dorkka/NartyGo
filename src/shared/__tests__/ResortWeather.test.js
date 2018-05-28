@@ -1,14 +1,14 @@
 import { ResortWeather } from '../ResortWeather';
+import { currentWeather } from '../../specs/fixtures/weather';
 
 describe('ResortWeather', () => {
   const defaultProps = {
-    getWeather: () => {},
-    currentWeather: fixture.weather,
+    getWeather: () => { },
+    currentWeather,
     cityId: 7531846,
     isLoading: false,
     error: null,
   };
-
   const setup = buildSetup(ResortWeather, defaultProps);
 
   describe('component', () => {

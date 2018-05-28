@@ -1,6 +1,4 @@
-global.fixture = global.fixture || {};
-
-global.fixture.weather = {
+export const currentWeather = {
   temperature: 22,
   temperatureMin: 15,
   temperatureMax: 30,

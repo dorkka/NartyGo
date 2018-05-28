@@ -1,4 +1,5 @@
 import { SpecificResortPage } from '../SpecificResortPage';
+import { resortId1 } from '../../../specs/fixtures/resorts';
 
 describe('SpecificResortPage', () => {
   const defaultProps = {
@@ -8,7 +9,7 @@ describe('SpecificResortPage', () => {
       },
     },
     getSpecificResort: () => { },
-    resort: fixture.resort,
+    resort: resortId1,
     isLoading: false,
     error: null,
   };
