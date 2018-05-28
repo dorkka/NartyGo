@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resortsReducer should return appropriate state when action type is SET_ERROR 1`] = `
+Object {
+  "byId": Object {},
+  "error": Object {
+    "mesage": "test error",
+  },
+  "isLoading": false,
+  "list": Array [],
+  "pageCount": 1,
+}
+`;
+
+exports[`resortsReducer should return appropriate state when action type is SET_RESORTS 1`] = `
+Object {
+  "byId": Object {
+    "1": Object {
+      "city": "Ustroń",
+      "cityId": 7531846,
+      "coordinates": Object {
+        "lat": 49.6833162,
+        "lng": 18.8196089,
+      },
+      "id": 1,
+      "name": "Czantoria",
+      "piste": Array [
+        Object {
+          "id": 1,
+          "name": "red",
+          "number": 1,
+        },
+        Object {
+          "id": 2,
+          "name": "blue",
+          "number": 2,
+        },
+      ],
+    },
+    "2": Object {
+      "city": "Karlików",
+      "cityId": 7531370,
+      "coordinates": Object {
+        "lat": 49.43529,
+        "lng": 22.067767,
+      },
+      "id": 2,
+      "name": "Karlików",
+      "piste": Array [
+        Object {
+          "id": 1,
+          "name": "Mała Palenica",
+          "number": 1,
+        },
+      ],
+    },
+  },
+  "error": null,
+  "isLoading": false,
+  "list": Array [
+    1,
+    2,
+  ],
+  "pageCount": 5,
+}
+`;
+
+exports[`resortsReducer should return state with truthy isLoading when action type is IS_LOADING 1`] = `
+Object {
+  "byId": Object {},
+  "error": null,
+  "isLoading": true,
+  "list": Array [],
+  "pageCount": 1,
+}
+`;

@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock';
 import * as actionCreators from '../actionCreators';
-import { resorts, resortId2 } from '../../../specs/fixtures/resorts';
+import { resorts } from '../../../specs/fixtures/resorts';
 
 describe('getResorts', () => {
   afterEach(() => {
@@ -62,7 +62,7 @@ describe('getSpecificResort', () => {
 
   test('should call setIsLoading when dispatch was called first time', () => {
     fetchMock.getOnce(/\/resorts\/2/, {
-      body: resortId2,
+      body: resorts[1],
     });
     const dispatch = jest.fn();
     actionCreators.getSpecificResort(2)(dispatch, getState).then(() => {
@@ -72,7 +72,7 @@ describe('getSpecificResort', () => {
 
   test('should call setSpecificResort if resort is not in state and data is fetched', () => {
     fetchMock.getOnce(/\/resorts\/2/, {
-      body: resortId2,
+      body: resorts[1],
     });
     const dispatch = jest.fn();
     actionCreators.getSpecificResort(2)(dispatch, getState).then(() => {

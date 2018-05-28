@@ -28,7 +28,7 @@ ResortWeather.propTypes = {
   currentWeather: PropTypes.object.isRequired,
   cityId: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
