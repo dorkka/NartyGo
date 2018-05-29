@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectors getCurrentResort should return current resorts when resorts in state 1`] = `
+Array [
+  Object {
+    "city": "Ustroń",
+    "cityId": 7531846,
+    "coordinates": Object {
+      "lat": 49.6833162,
+      "lng": 18.8196089,
+    },
+    "id": 1,
+    "name": "Czantoria",
+    "piste": Array [
+      Object {
+        "id": 1,
+        "name": "red",
+        "number": 1,
+      },
+      Object {
+        "id": 2,
+        "name": "blue",
+        "number": 2,
+      },
+    ],
+  },
+  Object {
+    "city": "Karlików",
+    "cityId": 7531370,
+    "coordinates": Object {
+      "lat": 49.43529,
+      "lng": 22.067767,
+    },
+    "id": 2,
+    "name": "Karlików",
+    "piste": Array [
+      Object {
+        "id": 1,
+        "name": "Mała Palenica",
+        "number": 1,
+      },
+    ],
+  },
+]
+`;
+
+exports[`selectors getSpecificResort should return resort when it is in state 1`] = `
+Object {
+  "city": "Karlików",
+  "cityId": 7531370,
+  "coordinates": Object {
+    "lat": 49.43529,
+    "lng": 22.067767,
+  },
+  "id": 2,
+  "name": "Karlików",
+  "piste": Array [
+    Object {
+      "id": 1,
+      "name": "Mała Palenica",
+      "number": 1,
+    },
+  ],
+}
+`;
