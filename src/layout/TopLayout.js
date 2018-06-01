@@ -13,6 +13,7 @@ class TopLayout extends Component {
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
+              <Link className="nav-link" to="/resorts/new">Wprowadź ośrodek</Link>
               <li><a className="nav-link" href="#">Logowanie</a></li>
             </ul>
           </div>
