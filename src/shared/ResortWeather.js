@@ -25,9 +25,9 @@ export class ResortWeather extends Component {
 
 ResortWeather.propTypes = {
   getWeather: PropTypes.func.isRequired,
-  currentWeather: PropTypes.object.isRequired,
   cityId: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  currentWeather: PropTypes.object,
+  isLoading: PropTypes.bool,
   error: PropTypes.object,
 };
 

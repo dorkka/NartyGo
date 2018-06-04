@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ResortForm from './ResortForm';
 
-export default class ResortFormPage extends Component {
+export default class NewResortFormPage extends Component {
   handleSubmit = values => {
     fetch('http://localhost:3001/resorts', {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify(values),
       headers: {
         'content-type': 'application/json',
