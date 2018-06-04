@@ -5,7 +5,7 @@ import ResortWeatherInfo from '../components/resortPage/ResortWeatherInfo';
 import { getCurrentWeather } from '../store/weather/selectors';
 import * as actions from '../store/weather/actionCreators';
 
-class ResortWeather extends Component {
+export class ResortWeather extends Component {
   componentDidMount() {
     const { cityId } = this.props;
     this.props.getWeather(cityId);
@@ -28,7 +28,7 @@ ResortWeather.propTypes = {
   currentWeather: PropTypes.object.isRequired,
   cityId: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({

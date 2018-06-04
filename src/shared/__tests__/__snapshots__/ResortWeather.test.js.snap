@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResortWeather component should render component 1`] = `
+<div
+  className="col-md-4"
+>
+  <ResortWeatherInfo
+    clouds="bezchmurnie"
+    pressure={1020}
+    sunrise="5:10:43"
+    sunset="21:14:35"
+    temperature={22}
+    temperatureMax={30}
+    temperatureMin={15}
+    wind={1.5}
+  />
+</div>
+`;
+
+exports[`ResortWeather component should render error message 1`] = `"test error"`;
+
+exports[`ResortWeather component should render loading in progres when isLoading is truthy 1`] = `
+<div>
+  Weather Loading in progress
+</div>
+`;

@@ -7,7 +7,7 @@ import ResortsMap from '../../shared/ResortsMap';
 import { getSpecificResort } from '../../store/resorts/selectors';
 import * as actions from '../../store/resorts/actionCreators';
 
-class SpecificResortPage extends Component {
+export class SpecificResortPage extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getSpecificResort(id);
@@ -46,7 +46,7 @@ SpecificResortPage.propTypes = {
   getSpecificResort: PropTypes.func.isRequired,
   resort: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({

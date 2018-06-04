@@ -29,8 +29,8 @@ ResortWeatherInfo.propTypes = {
   pressure: PropTypes.number,
   wind: PropTypes.number,
   clouds: PropTypes.string,
-  sunrise: PropTypes.number,
-  sunset: PropTypes.number,
+  sunrise: PropTypes.string,
+  sunset: PropTypes.string,
 };
 
 export default ResortWeatherInfo;
