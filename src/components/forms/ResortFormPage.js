@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResortForm from './ResortForm';
 
-export default class UpdateResortFormPage extends Component {
+export default class ResortFormPage extends Component {
   handleSubmit = values => {
     const { id } = this.props.match.params;
-    fetch(`http://localhost:3001/resorts/${id}`, {
-      method: 'PUT',
+    let url = 'http://localhost:3001/resorts';
+    let method = 'POST';
+    if (id) {
+      url = `${url}/${id}`;
+      method = 'PUT';
+    }
+    fetch(url, {
+      method,
       body: JSON.stringify(values),
       headers: {
         'content-type': 'application/json',
@@ -19,9 +25,9 @@ export default class UpdateResortFormPage extends Component {
   }
 }
 
-UpdateResortFormPage.propTypes = {
+ResortFormPage.propTypes = {
   id: PropTypes.string,
   match: PropTypes.shape({
-    params: PropTypes.string,
+    params: PropTypes.object,
   }),
 };

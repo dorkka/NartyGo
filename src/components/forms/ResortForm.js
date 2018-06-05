@@ -26,7 +26,7 @@ class NewResortForm extends Component {
           type="text"
           component={RenderField}
           label="id"
-          disabled
+          props={{ disabled: true }}
         />
         <Field
           name="name"
