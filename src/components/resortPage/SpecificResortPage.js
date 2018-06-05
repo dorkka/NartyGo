@@ -18,9 +18,8 @@ export class SpecificResortPage extends Component {
     const {
       resort: {
         name, piste, city, coordinates, cityId,
-      }, error, isLoading,
+      }, error, isLoading, match: { params: { id } },
     } = this.props;
-    const { id } = this.props.match.params;
     if (error) { return (error.message); }
     if (isLoading || !cityId) { return <div>Loading in progress</div>; }
     return (
