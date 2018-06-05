@@ -4,8 +4,7 @@ import { Field, reduxForm, FieldArray } from 'redux-form';
 import { connect } from 'react-redux';
 import { getSpecificResort } from '../../store/resorts/selectors';
 import * as actions from '../../store/resorts/actionCreators';
-import RenderPiste from './RenderPiste';
-import RenderField from './RenderField';
+import { RenderField, RenderPiste } from '.';
 
 class NewResortForm extends Component {
   componentDidMount() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ResortForm from './ResortForm';
+import { ConectedResortForm } from './';
 
 export default class ResortFormPage extends Component {
   handleSubmit = values => {
@@ -21,7 +21,7 @@ export default class ResortFormPage extends Component {
   }
   render() {
     const { id } = this.props.match.params;
-    return <ResortForm onSubmit={this.handleSubmit} id={id} />;
+    return <ConectedResortForm onSubmit={this.handleSubmit} id={id} />;
   }
 }
 

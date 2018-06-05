@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
-import RenderField from './RenderField';
+import { RenderField } from '.';
 
 const RenderPiste = ({ fields, meta: { error, submitFailed } }) => (
   <ul>
