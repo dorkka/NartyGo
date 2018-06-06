@@ -12,7 +12,7 @@ const RenderPiste = ({ fields, meta: { error, submitFailed } }) => (
       {submitFailed && error && <span>{error}</span>}
     </li>
     {fields.map((piste, index) => (
-      <li key={index}>
+      <li key={piste}>
         <button type="button" onClick={() => fields.remove(index)}>
           Usuń trasę
         </button>
@@ -45,7 +45,7 @@ RenderPiste.propTypes = {
     touched: PropTypes.bool,
     error: PropTypes.object,
   }),
-  fields: PropTypes.array,
+  fields: PropTypes.object,
 };
 
 export default RenderPiste;
