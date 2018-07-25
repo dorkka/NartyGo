@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ResortWeather from '../../shared/ResortWeather';
 import ResortDetails from './ResortDetails';
 import ResortsMap from '../../shared/ResortsMap';
@@ -17,7 +18,7 @@ export class SpecificResortPage extends Component {
     const {
       resort: {
         name, piste, city, coordinates, cityId,
-      }, error, isLoading,
+      }, error, isLoading, match: { params: { id } },
     } = this.props;
     if (error) { return (error.message); }
     if (isLoading || !cityId) { return <div>Loading in progress</div>; }
@@ -28,7 +29,8 @@ export class SpecificResortPage extends Component {
         <div className="row">
           <ResortDetails city={city} piste={piste.length} />
           <ResortWeather cityId={cityId} />
-          <div className="col-md-4">
+          <p><button type="button" className="btn btn-warning"><Link to={`/resorts/${id}/edit`}>Zmień dane</Link></button></p>
+          <div className="col-md-3">
             <ResortsMap coordinates={coordinates} zoom={10} defaultCenter={coordinates} />
           </div>
         </div>

@@ -50,7 +50,7 @@ export class ResortsData extends Component {
             <table className="table table-striped">
               <ResortsListHead />
               <tbody>
-                {resorts.map(resort => <ResortBasicInfo resort={resort} />)}
+                {resorts.map(resort => <ResortBasicInfo key={resort.id} resort={resort} />)}
               </tbody>
             </table>
             <Pagination
@@ -64,7 +64,7 @@ export class ResortsData extends Component {
               zoom={5.7}
               defaultCenter={{ lat: 52.068, lng: 19.4797 }}
               isResorts
-              markersPositions={resorts.map(resort => resort.coordinates)}
+              markersPositions={resorts.map(resort => ({ coordinates: resort.coordinates, id: resort.id }))}
             />
           </div>
         </div>
