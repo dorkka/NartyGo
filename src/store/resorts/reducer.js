@@ -6,6 +6,8 @@ const initialState = {
   pageCount: 1,
   isLoading: false,
   error: null,
+  resortsOptions: [],
+  cityOptions: [],
 };
 
 function resortsReducer(state = initialState, action) {
@@ -31,6 +33,15 @@ function resortsReducer(state = initialState, action) {
         },
         isLoading: false,
       };
+    }
+    case types.SET_SELECTED_OPTIONS:
+    {
+      return {
+        ...state,
+        resortsOptions: action.payload.resortsOptions,
+        cityOptions: action.payload.cityOptions,
+        isLoading: false,
+      }
     }
     case types.SET_ERROR: {
       return { ...state, error: action.error };

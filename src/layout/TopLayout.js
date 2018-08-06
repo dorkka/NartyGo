@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ResortSearch from '../components/ResortSearch';
 
 class TopLayout extends Component {
   render() {
@@ -32,7 +33,7 @@ class TopLayout extends Component {
           </div>
           <div className="col-md-7">
             <p>Wyszukaj ośrodek</p>
-            <input type="text" />
+            <ResortSearch />
             <p><button type="button" className="btn btn-warning">Szukaj</button></p>
           </div>
         </div>

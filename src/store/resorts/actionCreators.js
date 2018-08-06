@@ -59,3 +59,26 @@ export const getSpecificResort = (id) => (dispatch, getState) => {
     .catch(error => dispatch(setError(error)));
 };
 
+export const setSelectOptions = (data) => {
+  const resortsOptions = []
+  const cityOptions = []
+  let label = ''
+  data.forEach((element) => {
+    label = `${element.name} - ${element.city}`;
+    resortsOptions.push({ value: element.name, label, id: element.id })
+    cityOptions.push({ value: element.city, label, id: element.id })
+  })
+  return {
+    type: types.SET_SELECTED_OPTIONS,
+    payload: {
+      resortsOptions,
+      cityOptions,
+    }
+  }
+}
+
+export const getAllResorts = () => (dispatch) => {
+  resourceFetcher('http://localhost:3001/resorts')().then(({ data }) => {
+    dispatch(setSelectOptions(data))
+  });
+}
